@@ -109,14 +109,67 @@ This supports the idea that acceleration magnitude is a strong engineered featur
 
 ---
 
+## Machine Learning Analysis
+
+### Logistic Regression
+
+Logistic Regression was used as the baseline classification model.
+
+Accuracy achieved:
+
+**94.8%**
+
+This shows that sensor-based features are highly effective for distinguishing walking and running activities.
+
+---
+
+### Confusion Matrix
+
+The confusion matrix confirms strong class separation between walking and running activities.
+
+- Walking correctly classified: 8653
+- Running correctly classified: 8136
+
+The model shows strong performance with low misclassification rates.
+
+---
+
+### Random Forest Model
+
+Random Forest significantly improved model performance.
+
+Accuracy achieved:
+
+**99.0%**
+
+This indicates that the dataset is highly suitable for classification and that the selected features are strongly predictive.
+
+---
+
+### Feature Importance
+
+![Feature Importance](images/feature_importance.png)
+
+Feature importance analysis shows that:
+
+- `acc_y` is the most important feature
+- acceleration-based features are more important than gyroscope features
+- magnitude remains a strong engineered feature
+
+This confirms the findings from the EDA stage and strengthens the overall project results.
+
+---
+
 ## Key Insights
 
 - Running involves higher motion intensity than walking  
-- `acc_y` is one of the strongest features for activity classification  
-- Acceleration magnitude is an effective feature for activity classification  
+- `acc_y` is the strongest feature for activity classification  
+- Acceleration magnitude is an effective engineered feature for distinguishing activities  
 - Running has more dynamic and variable motion patterns  
-- SQL and Python analyses are consistent and support each other  
-- The project is prepared for machine learning classification models  
+- Logistic Regression achieved strong baseline performance with 94.8% accuracy  
+- Random Forest significantly improved classification performance with 99.0% accuracy  
+- Acceleration-based features are more important than gyroscope features  
+- SQL, Python EDA, and Machine Learning analyses are consistent and support each other  
 
 ---
 
@@ -125,14 +178,16 @@ This supports the idea that acceleration magnitude is a strong engineered featur
 - PostgreSQL  
 - DBeaver  
 - SQL  
-- Python (Pandas, Matplotlib, Seaborn)  
+- Python (Pandas, Matplotlib, Seaborn, Scikit-learn)  
 - Jupyter Notebook  
+- Machine Learning (Logistic Regression, Random Forest)  
 
 ---
 
 ## Future Improvements
 
-- Machine Learning model for activity classification (Logistic Regression, Random Forest)  
-- Model evaluation (confusion matrix, feature importance)  
+- Model evaluation using precision, recall, and F1-score  
+- Hyperparameter tuning for Random Forest optimization  
 - Interactive dashboard using Tableau or Power BI  
-- Real-time data processing (optional extension)  
+- Real-time motion data processing (optional extension)  
+- Deployment-ready analytics workflow  
