@@ -233,41 +233,7 @@ Feature engineering, model training, evaluation, and feature importance analysis
 - Tableau Public
 - GitHub
 
----
 
-## Future Improvements
 
-- Model evaluation using precision, recall, and F1-score
-- Hyperparameter tuning for Random Forest optimization
-- Time-series based activity prediction
-- Deep Learning models (LSTM / Neural Networks)
-- Real-time motion data processing
-- Interactive deployment using Streamlit or Power BI
 
----
-
-## Project Structure
-
-iot_motion/
-│
-├── [notebooks/](notebooks/)
-│   ├── [iot_motion_eda.ipynb](notebooks/iot_motion_eda.ipynb)
-│   └── [ml_model.ipynb](notebooks/ml_model.ipynb)
-│
-├── [images/](images/)
-│   ├── [activity_distribution.png](images/activity_distribution.png)
-│   ├── [acceleration_magnitude.png](images/acceleration_magnitude.png)
-│   ├── [magnitude_range.png](images/magnitude_range.png)
-│   ├── [correlation.png](images/correlation.png)
-│   ├── [magnitude_boxplot.png](images/magnitude_boxplot.png)
-│   ├── [feature_importance.png](images/feature_importance.png)
-│   └── [dashboard.png](images/dashboard.png)
-│
-├── [sql/](sql/)
-│   └── [sql_analysis.sql](sql/sql_analysis.sql)
-│
-├── Dataset Source
-│   └── [Kaggle - Kinematics Motion Dataset](https://www.kaggle.com/datasets/yasserh/kinematics-motion-data)
-│
-└── README.md
 
