@@ -3,11 +3,13 @@
 ## Project Overview
 
 This project analyzes motion sensor data collected from a wearable device using accelerometer and gyroscope signals.  
-The goal is to explore how motion patterns differ between walking and running activities using SQL-based analysis and Python-based Exploratory Data Analysis (EDA).
+The goal is to explore how motion patterns differ between walking and running activities using SQL-based analysis, Python-based Exploratory Data Analysis (EDA), Machine Learning models, and Tableau dashboard visualization.
 
 This project follows an end-to-end analytics workflow:
 
 SQL → Python EDA → Feature Engineering → Machine Learning → Dashboarding
+
+The objective is not only to analyze motion behavior, but also to identify the most important features for activity classification and build a strong portfolio-level analytics project.
 
 ---
 
@@ -15,16 +17,21 @@ SQL → Python EDA → Feature Engineering → Machine Learning → Dashboarding
 
 This project uses the **Kinematics Motion Dataset**, which contains motion sensor data collected from a wearable device.
 
-- Source: [Kaggle - Kinematics Motion Dataset](https://www.kaggle.com/datasets/yasserh/kinematics-motion-data)  
-- Total Records: 88,588  
+- Source: [Kaggle - Kinematics Motion Dataset](https://www.kaggle.com/datasets/yasserh/kinematics-motion-data)
+- Total Records: 88,588
 
-### Features:
+### Features
+
 - Acceleration (X, Y, Z)
 - Gyroscope (X, Y, Z)
 - Activity (0 = Walking, 1 = Running)
 - Timestamp (Date & Time)
 - User
 - Wrist
+
+### Engineered Feature
+
+- Magnitude (combined acceleration intensity)
 
 ---
 
@@ -33,7 +40,8 @@ This project uses the **Kinematics Motion Dataset**, which contains motion senso
 All SQL queries used in this project can be found here:  
 [SQL Analysis File](sql/sql_analysis.sql)
 
-### Analyses performed:
+### Analyses Performed
+
 - Activity distribution analysis
 - Sensor data aggregation (average acceleration)
 - Feature engineering (acceleration magnitude)
@@ -70,6 +78,14 @@ Running exhibits a wider range of acceleration values, suggesting higher variabi
 ## Python Analysis (EDA)
 
 The dataset was further analyzed using Python (Pandas, Matplotlib, and Seaborn) after being queried from PostgreSQL.
+
+### Analysis Included
+
+- Activity distribution visualization
+- Magnitude distribution analysis
+- Correlation matrix and heatmap
+- Feature comparison by activity
+- Magnitude comparison by activity
 
 ---
 
@@ -111,6 +127,10 @@ This supports the idea that acceleration magnitude is a strong engineered featur
 
 ## Machine Learning Analysis
 
+Two classification models were developed to predict activity type.
+
+---
+
 ### Logistic Regression
 
 Logistic Regression was used as the baseline classification model.
@@ -146,7 +166,7 @@ This indicates that the dataset is highly suitable for classification and that t
 
 ---
 
-### Feature Importance
+## Feature Importance
 
 ![Feature Importance](images/feature_importance.png)
 
@@ -160,34 +180,94 @@ This confirms the findings from the EDA stage and strengthens the overall projec
 
 ---
 
+## Tableau Dashboard
+
+An interactive Tableau dashboard was created to visually present the most important project insights.
+
+Dashboard includes:
+
+- Activity Distribution
+- Magnitude Comparison
+- Acc Y Comparison
+- Gyro Z Comparison
+
+This helps explain motion intensity differences and feature behavior between walking and running activities.
+
+![Dashboard](images/dashboard.png)
+
+---
+
 ## Key Insights
 
-- Running involves higher motion intensity than walking  
-- `acc_y` is the strongest feature for activity classification  
-- Acceleration magnitude is an effective engineered feature for distinguishing activities  
-- Running has more dynamic and variable motion patterns  
-- Logistic Regression achieved strong baseline performance with 94.8% accuracy  
-- Random Forest significantly improved classification performance with 99.0% accuracy  
-- Acceleration-based features are more important than gyroscope features  
-- SQL, Python EDA, and Machine Learning analyses are consistent and support each other  
+- Running involves higher motion intensity than walking
+- `acc_y` is the strongest feature for activity classification
+- Acceleration magnitude is an effective engineered feature for distinguishing activities
+- Running has more dynamic and variable motion patterns
+- Logistic Regression achieved strong baseline performance with 94.8% accuracy
+- Random Forest significantly improved classification performance with 99.0% accuracy
+- Acceleration-based features are more important than gyroscope features
+- SQL, Python EDA, Machine Learning, and Dashboard analyses are consistent and support each other
+
+---
+
+## Notebooks
+
+### [Exploratory Data Analysis](notebooks/iot_motion_eda.ipynb)
+
+Detailed EDA process, visualizations, and correlation analysis
+
+### [Machine Learning](notebooks/ml_model.ipynb)
+
+Feature engineering, model training, evaluation, and feature importance analysis
 
 ---
 
 ## Tools Used
 
-- PostgreSQL  
-- DBeaver  
-- SQL  
-- Python (Pandas, Matplotlib, Seaborn, Scikit-learn)  
-- Jupyter Notebook  
-- Machine Learning (Logistic Regression, Random Forest)  
+- PostgreSQL
+- DBeaver
+- SQL
+- Python (Pandas, Matplotlib, Seaborn, Scikit-learn)
+- Jupyter Notebook
+- Machine Learning (Logistic Regression, Random Forest)
+- Tableau Public
+- GitHub
 
 ---
 
 ## Future Improvements
 
-- Model evaluation using precision, recall, and F1-score  
-- Hyperparameter tuning for Random Forest optimization  
-- Interactive dashboard using Tableau or Power BI  
-- Real-time motion data processing (optional extension)  
-- Deployment-ready analytics workflow  
+- Model evaluation using precision, recall, and F1-score
+- Hyperparameter tuning for Random Forest optimization
+- Time-series based activity prediction
+- Deep Learning models (LSTM / Neural Networks)
+- Real-time motion data processing
+- Interactive deployment using Streamlit or Power BI
+
+---
+
+## Project Structure
+
+iot_motion/
+│
+├── [notebooks/](notebooks/)
+│   ├── [iot_motion_eda.ipynb](notebooks/iot_motion_eda.ipynb)
+│   └── [ml_model.ipynb](notebooks/ml_model.ipynb)
+│
+├── [images/](images/)
+│   ├── [activity_distribution.png](images/activity_distribution.png)
+│   ├── [acceleration_magnitude.png](images/acceleration_magnitude.png)
+│   ├── [magnitude_range.png](images/magnitude_range.png)
+│   ├── [correlation.png](images/correlation.png)
+│   ├── [magnitude_boxplot.png](images/magnitude_boxplot.png)
+│   ├── [feature_importance.png](images/feature_importance.png)
+│   └── [dashboard.png](images/dashboard.png)
+│
+├── [sql/](sql/)
+│   └── [sql_analysis.sql](sql/sql_analysis.sql)
+│
+├── Dataset Source
+│   └── [Kaggle - Kinematics Motion Dataset](https://www.kaggle.com/datasets/yasserh/kinematics-motion-data)
+│
+└── README.md
+
